@@ -1,7 +1,9 @@
 import 'package:bloc_app/Counter_bloc.dart';
 import 'package:bloc_app/HomePage.dart';
+import 'package:bloc_app/pages/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,18 +15,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return BlocProvider(
+create: (context) => CounterBloc(),
+     child:ScreenUtilInit(
+       builder: (context, child) => MaterialApp(
+         title: 'Flutter Demo',
+         debugShowCheckedModeBanner: false,
+         theme: ThemeData(
 
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: BlocProvider(
-        create: (context) => CounterBloc(),
-          child: const Homepage(title: 'Flutter Demo Home Page')),
+           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+           useMaterial3: true,
+         ),
+         home: const Welcome(),
+       ),
+     ),
     );
   }
 }
