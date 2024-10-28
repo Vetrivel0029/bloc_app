@@ -1,5 +1,6 @@
 import 'package:bloc_app/Counter_bloc.dart';
 import 'package:bloc_app/HomePage.dart';
+import 'package:bloc_app/pages/welcome/bloc/welcome_bloc.dart';
 import 'package:bloc_app/pages/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-create: (context) => CounterBloc(),
+create: (context) => WelcomeBloc(),
      child:ScreenUtilInit(
        builder: (context, child) => MaterialApp(
          title: 'Flutter Demo',
@@ -26,7 +27,9 @@ create: (context) => CounterBloc(),
            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
            useMaterial3: true,
          ),
-         home: const Welcome(),
+         home:
+             // const Homepage(title: "Home Page")
+         const Welcome(),
        ),
      ),
     );

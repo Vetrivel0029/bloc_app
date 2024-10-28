@@ -26,6 +26,7 @@ class _HomepageState extends State<Homepage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
            BlocBuilder<CounterBloc,int>(
+
              builder: (context, state) {
                return Text('Count $state');
              },
